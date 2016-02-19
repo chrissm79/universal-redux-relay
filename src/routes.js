@@ -1,3 +1,4 @@
+import Hello from './components/Hello';
 import TodoApp from './components/TodoApp';
 import TodoList from './components/TodoList';
 import ViewerQueries from './queries/ViewerQueries';
@@ -5,7 +6,11 @@ import ViewerQueries from './queries/ViewerQueries';
 export default () => {
   return [
     {
-        path: '/',
+      path: '/',
+      component: Hello,
+    },
+    {
+        path: '/todo',
         component: TodoApp,
         queries: ViewerQueries,
         indexRoute: {

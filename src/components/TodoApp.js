@@ -24,6 +24,9 @@ class TodoApp extends React.Component {
     );
   };
   render() {
+    require('../../css/base.css');
+    require('../../css/index.css');
+
     var hasTodos = this.props.viewer.totalCount > 0;
     return (
       <div>
