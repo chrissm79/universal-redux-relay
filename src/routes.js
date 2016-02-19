@@ -1,9 +1,25 @@
-import React from 'react';
-import { Route } from 'react-router';
-import App from './containers/App/App';
+import TodoApp from './components/TodoApp';
+import TodoList from './components/TodoList';
+import ViewerQueries from './queries/ViewerQueries';
 
 export default () => {
-  return (
-    <Route path="/" component={App} />
-  );
+  return [
+    {
+        path: '/',
+        component: TodoApp,
+        queries: ViewerQueries,
+        indexRoute: {
+            component: TodoList,
+            queries: ViewerQueries,
+            prepareParams: () => ({status: 'any'}),
+        },
+        childRoutes: [
+            {
+                path: ':status',
+                component: TodoList,
+                queries: ViewerQueries,
+            },
+        ],
+    },
+  ];
 };
