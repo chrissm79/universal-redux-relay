@@ -13,12 +13,12 @@ export default function(store, providers, devComponent) {
     new Relay.DefaultNetworkLayer('http://localhost:8080/graphql')
   );
 
-  // IsomorphicRelay.injectPreparedData(window.__graphql);
+  IsomorphicRelay.injectPreparedData(window.__graphql);
 
   const root = (
     <Provider store={store}>
       <div>
-        <RelayRouter
+        <IsomorphicRouter.Router
           routes={getRoutes(store)}
           history={browserHistory}
           render={(props) => <ReduxAsyncConnect {...props} />}

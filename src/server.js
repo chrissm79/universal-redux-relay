@@ -29,7 +29,7 @@ export default function(store, renderProps) {
         const root = (
           <Provider store={store} key="provider">
             <div>
-              <ReduxAsyncConnect {...renderProps} />
+              <ReduxAsyncConnect render={() => routerContext} {...renderProps} />
             </div>
           </Provider>
         );
