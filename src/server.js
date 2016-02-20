@@ -11,33 +11,17 @@ export default function(store, renderProps) {
       new Relay.DefaultNetworkLayer('http://localhost:8080/graphql')
     );
 
-    loadOnServer(renderProps, store)
-      .then(prepareData)
-      .catch((err) => {
-        reject(err);
+    IsomorphicRouter.prepareData(renderProps).then(render);
+
+    function render({data, props}) {
+      const root = (
+        <IsomorphicRouter.RouterContext {...props} />
+      );
+
+      resolve({
+        data,
+        root
       });
-
-      function prepareData() {
-        IsomorphicRouter.prepareData(renderProps).then(render);
-      }
-
-      function render({data, props}) {
-        const routerContext = (
-          <IsomorphicRouter.RouterContext {...props} />
-        );
-
-        const root = (
-          <Provider store={store} key="provider">
-            <div>
-              <ReduxAsyncConnect render={() => routerContext} {...renderProps} />
-            </div>
-          </Provider>
-        );
-
-        resolve({
-          data,
-          root
-        });
-      }
+    }
   });
 }

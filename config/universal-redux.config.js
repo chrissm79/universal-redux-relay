@@ -131,7 +131,7 @@ module.exports = {
   //
   // Expects: String
   */
-  babelConfig: projectRoot + '/.babelrc',
+  // babelConfig: projectRoot + '/.babelrc',
 
   /*
   // Enable native desktop notifications for Webpack build events.
@@ -211,7 +211,6 @@ module.exports = {
   // Expects: Object
   */
   webpack: {
-
     /*
     // A list of libraries that do not change frequently between deploys
     // and are best served in the vendor bundle. Optional.

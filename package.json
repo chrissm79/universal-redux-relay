@@ -10,8 +10,8 @@
     "build": "universal-redux-build",
     "start": "NODE_ENV=production NODE_PATH=./src universal-redux-server",
     "dev-server": "NODE_PATH=./src universal-redux-server",
-    "dev-server-bak": "NODE_PATH=./src ./bin/server.js",
-    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run dev-server\" \"npm run graphql-server\"",
+    "dev-server-custom": "NODE_PATH=./src ./bin/server.js",
+    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run dev-server-custom\" \"npm run graphql-server\"",
     "graphql-server": "better-npm-run graphql-server",
     "watch-client": "universal-redux-watch"
   },

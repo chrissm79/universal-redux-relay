@@ -10,7 +10,7 @@ var app = express();
 
 app.use(cors());
 app.use('/graphql', graphQLHTTP((request) => {
-  // console.log('graphql.request');
+  console.log('graphql.request');
   return {
     schema,
     pretty: true

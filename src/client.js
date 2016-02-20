@@ -6,7 +6,7 @@ import IsomorphicRouter from 'isomorphic-relay-router';
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-async-connect';
-import getRoutes from 'universal-redux/routes';
+import routes from './routes';
 
 export default function(store, providers, devComponent) {
   Relay.injectNetworkLayer(
@@ -16,15 +16,10 @@ export default function(store, providers, devComponent) {
   IsomorphicRelay.injectPreparedData(window.__graphql);
 
   const root = (
-    <Provider store={store}>
-      <div>
-        <IsomorphicRouter.Router
-          routes={getRoutes(store)}
-          history={browserHistory}
-          render={(props) => <ReduxAsyncConnect {...props} />}
-          />
-      </div>
-    </Provider>
+    <IsomorphicRouter.Router
+      routes={routes()}
+      history={browserHistory}
+      />
   );
 
   return Promise.resolve(root);
