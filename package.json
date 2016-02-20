@@ -35,8 +35,8 @@
     "express-graphql": "^0.4.9",
     "graphql": "^0.4.18",
     "graphql-relay": "^0.3.6",
-    "isomorphic-relay": "^0.5.2",
-    "isomorphic-relay-router": "^0.6.1",
+    "isomorphic-relay": "^0.5.3",
+    "isomorphic-relay-router": "^0.6.2",
     "react-relay": "^0.7.1",
     "react-router-relay": "^0.9.0",
     "universal-redux": "3.0.0"
